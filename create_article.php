@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création d'un article</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/creator_article_style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="form-container">
         <h1 class="text-center mb-4">Créer un article</h1>
         <form action="submit_article.php" method="post">
             <div class="form-group">
@@ -18,13 +19,16 @@
                 <label for="content">Contenu :</label>
                 <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
             </div>
-            <div class="form-group">
-                <label for="author">Auteur :</label>
-                <input type="text" class="form-control" id="author" name="author" required>
-            </div>
-            <div class="form-group text-right">
-                <button type="submit" class="btn btn-success">Enregistrer</button>
-                <button type="button" class="btn btn-danger" onclick="window.location.href='create_article.html';">Annuler</button>
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>Actions :</span>
+                        <div>
+                            <button type="submit" class="btn btn-success" id="save">Enregistrer</button>
+                            <button type="button" class="btn btn-danger" id="cancel" onclick="window.location.href='create_article.html';">Annuler</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -33,3 +37,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
