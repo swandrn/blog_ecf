@@ -16,6 +16,7 @@ class DbHandler
         }
     }
 
+    //Articles
     /**
      * Insert article data in DB
      * @param string $title
@@ -26,15 +27,13 @@ class DbHandler
     
     function insertArticle($title, $content, $author, $categoryId)
     {
-        $currentDate = date("Y-m-d");
         try {
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("INSERT INTO articles (titre, contenu, auteur, date_creation, categorie_id)
+            $stmt = $conn->prepare("INSERT INTO articles (titre, contenu, auteur, categorie_id)
             VALUES (:title, :content, :author, :currentDate, :categoryId)");
             $stmt->bindParam(':title', $title, PDO::PARAM_STR);
             $stmt->bindParam(':content', $content, PDO::PARAM_STR);
             $stmt->bindParam(':author', $author, PDO::PARAM_STR);
-            $stmt->bindParam(':currentDate', $currentDate, PDO::PARAM_STR);
             $stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
             $stmt->execute();
             $conn = null;
@@ -53,6 +52,7 @@ class DbHandler
             $stmt = $conn->prepare("SELECT titre, contenu, auteur, date_creation, categorie_id FROM articles");
             $stmt->execute();
             $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $conn = null;
             return $res;
         } catch(PDOException $e){
             echo $e->getMessage();
@@ -71,6 +71,7 @@ class DbHandler
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             $res = $stmt->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
             return $res;
         } catch(PDOException $e){
             echo $e->getMessage();
@@ -87,9 +88,31 @@ class DbHandler
             $stmt = $conn->prepare("DELETE FROM articles WHERE id_article=:id");
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
+            $conn = null;
         } catch(PDOException $e){
             echo $e->getMessage();
         }
     }
+
+    //Comments
+    function insertComment($author, $articleId, $userId, $content)
+    {
+        try {
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("INSERT INTO commentaires (auteur, article_id, utilisateur_id, contenu)
+            VALUES (:author, :articleId, :userId, :content)");
+            $stmt->bindParam(':author', $author, PDO::PARAM_STR);
+            $stmt->bindParam(':articleId', $articleId, PDO::PARAM_INT);
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+            $stmt->bindParam(':content', $content, PDO::PARAM_STR);
+            $stmt->execute();
+            $conn = null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
+
+$db = new DbHandler();
+$db->insertComment('toto', 1, 1, 'tototititata');
 ?>
