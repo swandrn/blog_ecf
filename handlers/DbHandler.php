@@ -29,7 +29,7 @@ class DbHandler
         $currentDate = date("Y-m-d");
         try {
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("INSERT INTO articles (titre, contenu, auteur, dateCreation, categorieId)
+            $stmt = $conn->prepare("INSERT INTO articles (titre, contenu, auteur, date_creation, categorie_id)
             VALUES (:title, :content, :author, :currentDate, :categoryId)");
             $stmt->bindParam(':title', $title, PDO::PARAM_STR);
             $stmt->bindParam(':content', $content, PDO::PARAM_STR);
@@ -50,7 +50,7 @@ class DbHandler
     function selectAllArticles(){
         try{
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("SELECT titre, contenu, auteur, dateCreation, categorieId FROM articles");
+            $stmt = $conn->prepare("SELECT titre, contenu, auteur, date_creation, categorie_id FROM articles");
             $stmt->execute();
             $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $res;
@@ -67,7 +67,7 @@ class DbHandler
     function selectArticle($id){
         try{
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("SELECT titre, contenu, auteur, dateCreation, categorieId FROM articles WHERE id_article=:id");
+            $stmt = $conn->prepare("SELECT titre, contenu, auteur, date_creation, categorie_id FROM articles WHERE id_article=:id");
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             $res = $stmt->fetch(PDO::FETCH_ASSOC);
