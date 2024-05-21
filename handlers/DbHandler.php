@@ -35,5 +35,17 @@ class DbHandler
             echo $e->getMessage();
         }
     }
+
+    function selectAllArticles(){
+        try{
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("SELECT titre, contenu, auteur, dateCreation, categorieId FROM articles");
+            $stmt->execute();
+            $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $res;
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 }
 ?>
