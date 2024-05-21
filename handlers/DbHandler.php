@@ -119,7 +119,4 @@ class DbHandler
         }
     }
 }
-
-$db = new DbHandler();
-$db->insertComment('toto', 1, 1, 'tototititata');
 ?>
