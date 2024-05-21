@@ -4,7 +4,7 @@ class DbHandler
     private $username = 'root';
     private $password = '';
 
-    //Connection
+    //Connect to DB
     function openDbConnection()
     {
         try {
@@ -16,6 +16,7 @@ class DbHandler
         }
     }
 
+    //Insert article data in DB
     function insertArticle($title, $content, $author, $category)
     {
         $currentDate = date("Y-m-d");
