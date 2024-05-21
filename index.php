@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+<?php require_once './handlers/article_data_handler.php' ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,30 +21,12 @@
         </nav>
     </header>
     <main>
+        <?php foreach($articles as $article):  ?>
         <div class="article">
-            <h2>Article 1 (extrait)</h2>
-            <p>Contenu de l'article 1 ...</p>
+            <h2><?= htmlspecialchars($article['titre']); ?></h2>
+            <p><?= htmlspecialchars($article['contenu']); ?></p>
         </div>
-        <div class="article">
-            <h2>Article 2 (extrait)</h2>
-            <p>Contenu de l'article 2 ...</p>
-        </div>
-        <div class="article">
-            <h2>Article 3 (extrait)</h2>
-            <p>Contenu de l'article 3 ...</p>
-        </div>
-        <div class="article">
-            <h2>Article 4 (extrait=)</h2>
-            <p>Contenu de l'article 4 ...</p>
-        </div>
-        <div class="article">
-            <h2>Article 5 (extrait)</h2>
-            <p>Contenu de l'article 5 ...</p>
-        </div>
-        <div class="article">
-            <h2>Article 6 (extrait)</h2>
-            <p>Contenu de l'article 6 ...</p>
-        </div>
+        <?php endforeach; ?>
     </main>
     <footer>
         <p>&copy; 2024</p>
