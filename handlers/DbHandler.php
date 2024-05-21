@@ -36,6 +36,7 @@ class DbHandler
         }
     }
 
+    //Get all the existing articles in DB
     function selectAllArticles(){
         try{
             $conn = $this->openDbConnection();
