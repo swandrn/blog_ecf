@@ -118,5 +118,17 @@ class DbHandler
             echo $e->getMessage();
         }
     }
+
+    function deleteComment($commentId){
+        try{
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("DELETE FROM commentaires WHERE id_commentaire=:id");
+            $stmt->bindParam(':id', $commentId, PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 }
 ?>
