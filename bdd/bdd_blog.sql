@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 21 mai 2024 à 09:26
+-- Généré le : mar. 21 mai 2024 à 09:46
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.3.4
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `categorie_id` int NOT NULL,
   `titre` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `contenu` text COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_creation` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `utilisateurs_id` (`utilisateurs_id`),
   KEY `categorie_id` (`categorie_id`)
@@ -56,16 +56,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comments`
+-- Structure de la table `commentaires`
 --
 
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE IF NOT EXISTS `comments` (
+DROP TABLE IF EXISTS `commentaires`;
+CREATE TABLE IF NOT EXISTS `commentaires` (
   `id` int NOT NULL AUTO_INCREMENT,
   `article_id` int NOT NULL,
   `utilisateurs_id` int NOT NULL,
   `contenu` text COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_creation` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `utilisateurs_id` (`utilisateurs_id`)
@@ -100,11 +100,11 @@ ALTER TABLE `articles`
   ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id`);
 
 --
--- Contraintes pour la table `comments`
+-- Contraintes pour la table `commentaires`
 --
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`utilisateurs_id`) REFERENCES `utilisateurs` (`id`);
+ALTER TABLE `commentaires`
+  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
+  ADD CONSTRAINT `commentaires_ibfk_2` FOREIGN KEY (`utilisateurs_id`) REFERENCES `utilisateurs` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
