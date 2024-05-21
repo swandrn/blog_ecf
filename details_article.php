@@ -20,7 +20,6 @@
         </nav>
     </header>
     <div class="container mt-5">
-        <!-- Bloc "Actions" -->
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-between">
                 Actions :
