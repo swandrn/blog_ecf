@@ -76,5 +76,20 @@ class DbHandler
             echo $e->getMessage();
         }
     }
+
+    /**
+     * Delete the article of a given ID
+     * @param int $id id of article to delete
+     */
+    function deleteArticle($id){
+        try{
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("DELETE FROM articles WHERE id_article=:id");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 }
 ?>
