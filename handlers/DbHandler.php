@@ -25,16 +25,17 @@ class DbHandler
      * @param int $category
      */
     
-    function insertArticle($title, $content, $author, $categoryId)
+    function insertArticle($userId, $categoryId, $title, $content, $author)
     {
         try {
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("INSERT INTO articles (titre, contenu, auteur, categorie_id)
-            VALUES (:title, :content, :author, :currentDate, :categoryId)");
+            $stmt = $conn->prepare("INSERT INTO articles (utilisateur_id, categorie_id, titre, auteur, contenu)
+            VALUES (:userId, :categoryId, :title, :author, :content)");
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_STR);
+            $stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_STR);
             $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-            $stmt->bindParam(':content', $content, PDO::PARAM_STR);
             $stmt->bindParam(':author', $author, PDO::PARAM_STR);
-            $stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
+            $stmt->bindParam(':content', $content, PDO::PARAM_STR);
             $stmt->execute();
             $conn = null;
         } catch (PDOException $e) {
