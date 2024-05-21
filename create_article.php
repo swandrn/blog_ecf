@@ -20,7 +20,7 @@
     </header>
     <div class="form-container">
         <h1 class="text-center mb-4">Créer un article</h1>
-        <form action="submit_article.php" method="post">
+        <form action="./handlers/creation_form_handler.php" method="POST">
             <div class="form-group">
                 <label for="title">Titre :</label>
                 <input type="text" class="form-control" id="title" name="title" required>
@@ -31,12 +31,12 @@
             </div>
             <div class="form-group">
                 <label for="categories">Catégories :</label>
-                <select class="form-control" id="categories" name="categories[]" multiple required>
-                    <option value="technologie">Technologie</option>
-                    <option value="sante">Santé</option>
-                    <option value="science">Science</option>
-                    <option value="education">Éducation</option>
-                    <option value="voyage">Voyage</option>
+                <select class="form-control" id="categories" name="categoryId" multiple required>
+                    <option value="1">Technologie</option>
+                    <option value="2">Santé</option>
+                    <option value="3">Science</option>
+                    <option value="4">Éducation</option>
+                    <option value="5">Voyage</option>
                 </select>
             </div>
             <div class="card">
