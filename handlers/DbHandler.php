@@ -95,6 +95,13 @@ class DbHandler
     }
 
     //Comments
+    /**
+     * Insert the comment in the DB
+     * @param string $author
+     * @param int $articleId
+     * @param int $userId
+     * @param string $content
+     */
     function insertComment($author, $articleId, $userId, $content)
     {
         try {
