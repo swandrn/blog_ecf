@@ -7,15 +7,21 @@
     background-color: #00000008;
 }
 
+.form-control {
+    border: 3px solid black; /* Définit la bordure à 3px solid noir */
+}
+
+.card-body {
+    border: 3px solid black;
+}
 
 #save {
     width: 200px;
     background-color: rgb(0, 193, 0);
     border-radius: 50px;
-
 }
 
-#cancel{
+#cancel {
     width: 200px;
     background-color: rgba(255, 0, 0, 0.7);
     border-radius: 50px;
