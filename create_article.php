@@ -19,6 +19,16 @@
                 <label for="content">Contenu :</label>
                 <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
             </div>
+            <div class="form-group">
+                <label for="categories">Catégories :</label>
+                <select class="form-control" id="categories" name="categories[]" multiple required>
+                    <option value="technologie">Technologie</option>
+                    <option value="sante">Santé</option>
+                    <option value="science">Science</option>
+                    <option value="education">Éducation</option>
+                    <option value="voyage">Voyage</option>
+                </select>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
@@ -37,4 +47,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
