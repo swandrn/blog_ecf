@@ -139,11 +139,12 @@ class DbHandler
             echo $e->getMessage();
         }
     }
+    
     function getUserByEmail($email)
 {
     try {
         $conn = $this->openDbConnection();
-        $stmt = $conn->prepare("SELECT id, pseudo, password FROM utilisateurs WHERE email = :email");
+        $stmt = $conn->prepare("SELECT id_utilisateur, pseudo, password FROM utilisateurs WHERE email = :email");
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         $res = $stmt->fetch(PDO::FETCH_ASSOC);

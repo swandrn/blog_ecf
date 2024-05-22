@@ -1,29 +1,3 @@
-<?php
-require_once 'handlers/DbHandler.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $db = new DbHandler();
-    
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    
-    // Récupérer l'utilisateur par email
-    $user = $db->getUserByEmail($email);
-
-    if ($user && password_verify($password, $user['password'])) {
-        // Connexion réussie
-        echo "Connexion réussie !";
-        header('Location: ../index.php'); // Redirection vers la page d'accueil
-        exit;
-    } else {
-        // Erreur de connexion
-        echo "Adresse e-mail ou mot de passe incorrect.";
-        header('Location: ../login.php'); // Redirection vers la page de connexion
-        exit;
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -47,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php require 'header.php' ?>
     <div class="form-container">
         <h1 class="text-center mb-4">Connexion</h1>
-        <form action="login.php" method="post">
+        <form action="handlers/traitement_login.php" method="post">
             <div class="form-group">
                 <label for="email">Adresse e-mail :</label>
                 <input type="email" class="form-control" id="email" name="email" required>
@@ -66,4 +40,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
