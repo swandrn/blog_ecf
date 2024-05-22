@@ -60,19 +60,12 @@
                 Laisser un commentaire :
             </div>
             <div class="card-body">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Nom :</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email :</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
+                <form action="./handlers/add_comment_handler.php" method="POST">
                     <div class="form-group">
                         <label for="comment">Commentaire :</label>
                         <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
                     </div>
+                    <input type="hidden" name="articleId" value="<?php if(!empty($_GET)){echo htmlspecialchars($_GET['id']);} ?>">
                     <div class="d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary" id="save">Ajouter</button>
                         <button type="button" class="btn btn-secondary" id="cancel">Annuler</button>
