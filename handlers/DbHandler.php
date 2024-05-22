@@ -50,7 +50,7 @@ class DbHandler
     function selectAllArticles(){
         try{
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("SELECT titre, contenu, auteur, date_creation, categorie_id FROM articles");
+            $stmt = $conn->prepare("SELECT id_article, titre, contenu, auteur, date_creation, categorie_id FROM articles");
             $stmt->execute();
             $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $conn = null;
