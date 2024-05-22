@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <?php require_once './handlers/article_data_handler.php' ?>
-
+<
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header>
+    <!-- <header>
         <nav>
             <ul>
                 <li><a href="index.php">Liste des articles</a></li>
@@ -19,7 +19,8 @@
                 <li><a href="edit_article.php">Editer un article</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
+    <?php require 'header.php' ?>
     <main>
         <?php foreach($articles as $article):  ?>
         <div class="article">
@@ -28,9 +29,7 @@
         </div>
         <?php endforeach; ?>
     </main>
-    <footer>
-        <p>&copy; 2024</p>
-    </footer>
+    <?php require 'footer.php' ?>
 </body>
 
 </html>

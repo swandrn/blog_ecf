@@ -8,6 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
+          <!-- page des derniers articles ? -->
           <a class="nav-link active" aria-current="page" href="#">Derniers articles</a>
         </li>
         <li class="nav-item">
@@ -27,11 +28,6 @@
           </ul>
         </li>
       </ul>
-<!-- A voir si on laisse la fonctionnalité rechercher... -->
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Rechercher</button>
-      </form>
     </div>
   </div>
 </nav>
