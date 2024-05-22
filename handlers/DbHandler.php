@@ -158,5 +158,24 @@ class DbHandler
             echo $e->getMessage();
         }
     }
+
+    /**
+     * Select the ID of a given user
+     * @param string $username
+     * @return array array of key value where key is column name
+     */
+    function selectUserId($username){
+        try{
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("SELECT id_utilisateur FROM utilisateurs WHERE pseudo=:username");
+            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+            $stmt->execute();
+            $res = $stmt->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $res;
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 }
 ?>
