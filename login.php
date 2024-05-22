@@ -1,5 +1,5 @@
 <?php
-require_once './DbHandler.php';
+require_once 'handlers/DbHandler.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = new DbHandler();
