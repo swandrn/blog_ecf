@@ -13,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['password'])) {
         // Connexion réussie
         echo "Connexion réussie !";
+        // Commence la session
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION['username'] = $user['pseudo'];
         header('Location: ../index.php'); // Redirection vers la page d'accueil
         exit;
     } else {

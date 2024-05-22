@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php require_once './handlers/article_data_handler.php'; ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,10 +37,10 @@
         <!-- Bloc Article -->
         <div class="card mb-4">
             <div class="card-header">
-                Article :
+                Article : <?= $article['titre']; ?>
             </div>
             <div class="card-body">
-                <!-- Contenu de l'article -->
+                <p><?= $article['contenu']; ?></p>
             </div>
         </div>
 
