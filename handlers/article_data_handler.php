@@ -3,7 +3,7 @@ require_once './handlers/DbHandler.php';
 
 $db = new DbHandler();
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+if (!empty($_GET)){
     //On est dans le cas ou on a cliquer sur un article
     $id = $_GET['id'] ?? null;
     if($id !== null){
