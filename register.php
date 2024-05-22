@@ -20,7 +20,7 @@
     </header>
     <div class="form-container">
         <h1 class="text-center mb-4">Inscription</h1>
-        <form action="traitement_inscription.php" method="post">
+        <form action="handlers/traitement_inscription.php" method="post">
             <div class="form-group">
                 <label for="nom">Nom :</label>
                 <input type="text" class="form-control" id="nom" name="nom" required>
