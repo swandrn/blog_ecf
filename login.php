@@ -36,14 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <header>
+    <!-- <header>
         <nav>
             <ul>
                 <li><a href="index.php">Liste des articles</a></li>
                 <li><a href="edit_article.php">Editer un article</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
+    <?php require 'header.php' ?>
     <div class="form-container">
         <h1 class="text-center mb-4">Connexion</h1>
         <form action="login.php" method="post">
@@ -60,9 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </form>
     </div>
+    <?php require 'footer.php' ?>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

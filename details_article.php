@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <!-- <header>
         <nav>
             <ul>
                 <li><a href="index.php">Liste des articles</a></li>
@@ -18,7 +18,8 @@
                 <li><a href="create_article.php">Créer un article</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
+    <?php require 'header.php' ?> 
     <div class="container mt-5">
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-between">
@@ -77,7 +78,7 @@
             </div>
         </div>
     </div>
-
+<?php require 'footer.php' ?>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

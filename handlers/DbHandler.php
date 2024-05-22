@@ -36,7 +36,7 @@ class DbHandler
     {
         try {
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("SELECT titre, contenu, auteur, date_creation, categorie_id FROM articles");
+            $stmt = $conn->prepare("SELECT id_article, titre, contenu, auteur, date_creation, categorie_id FROM articles");
             $stmt->execute();
             $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $conn = null;
@@ -121,20 +121,38 @@ class DbHandler
         }
     }
 
-    function getUserByEmail($email)
-    {
-        try {
+    /**
+     * Select the ID of a given user
+     * @param string $username
+     * @return array array of key value where key is column name
+     */
+    function selectUserId($username){
+        try{
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("SELECT id, pseudo, password FROM utilisateurs WHERE email = :email");
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt = $conn->prepare("SELECT id_utilisateur FROM utilisateurs WHERE pseudo=:username");
+            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
             $stmt->execute();
             $res = $stmt->fetch(PDO::FETCH_ASSOC);
             $conn = null;
             return $res;
-        } catch (PDOException $e) {
+        } catch(PDOException $e){
             echo $e->getMessage();
-            return false;
         }
     }
+    function getUserByEmail($email)
+{
+    try {
+        $conn = $this->openDbConnection();
+        $stmt = $conn->prepare("SELECT id, pseudo, password FROM utilisateurs WHERE email = :email");
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
+        $conn = null;
+        return $res;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
 }
 ?>
