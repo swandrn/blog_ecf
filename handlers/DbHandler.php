@@ -8,7 +8,7 @@ class DbHandler
     function openDbConnection()
     {
         try {
-            $conn = new PDO("mysql:host=localhost;dbname=blogecf", $this->username, $this->password);
+            $conn = new PDO("mysql:host=localhost;dbname=ecf4_blog_groupe1", $this->username, $this->password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conn;
         } catch (PDOException $e) {
