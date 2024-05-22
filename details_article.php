@@ -33,7 +33,7 @@
         <!-- Bloc Article -->
         <div class="card mb-4">
             <div class="card-header">
-                article :
+                Article :
             </div>
             <div class="card-body">
                 <!-- Contenu de l'article -->

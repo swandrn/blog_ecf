@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>Inscription</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/creator_article_style.css" rel="stylesheet">
 </head>
@@ -19,18 +19,30 @@
         </nav>
     </header>
     <div class="form-container">
-        <h1 class="text-center mb-4">Connexion</h1>
-        <form action="login.php" method="post">
+        <h1 class="text-center mb-4">Inscription</h1>
+        <form action="traitement_inscription.php" method="post">
             <div class="form-group">
-                <label for="username">Nom d'utilisateur :</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                <label for="nom">Nom :</label>
+                <input type="text" class="form-control" id="nom" name="nom" required>
             </div>
             <div class="form-group">
-                <label for="password">Mot de passe :</label>
+                <label for="prenom">Prénom :</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+                <label for="pseudo">Pseudo :</label>
+                <input type="text" class="form-control" id="pseudo" name="pseudo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="pass">Mot de passe :</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-success" id="login">Se connecter</button>
+                <button type="submit" class="btn btn-primary" value ="M'inscrire" name="ok">S'inscrire</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

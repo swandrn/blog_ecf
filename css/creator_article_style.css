@@ -1,3 +1,9 @@
+/* style.css */
+
+body {
+    background-color: #f8f9fa;
+}
+
 .form-container, .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -7,37 +13,52 @@
     background-color: #00000017;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-}
-
 .card {
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
 .card-header {
+    background-color: #007bff;
+    color: white;
     text-align: center;
     border: 3px solid black;
+}
+
+.card-header h2 {
+    margin: 0;
 }
 
 .card-body {
     padding: 20px;
     border: 3px solid black;
-    flex-grow: 1;
 }
 
 .form-control {
-    border: 3px solid black; /* Définit la bordure à 3px solid noir */
+    border: 3px solid black;
     text-align: center;
 }
 
 .btn {
     width: 100%;
     margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
 }
 
 #save {
