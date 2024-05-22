@@ -1,3 +1,9 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+?>
+
 <header>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -27,6 +33,11 @@
             <li><a class="dropdown-item" href="#">Voyage</a></li>
           </ul>
         </li>
+        <?php if(empty($_SESSION['username'])): ?>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="login.php">Connéxion</a>
+        </li>
+        <?php endif; ?>
       </ul>
     </div>
   </div>
