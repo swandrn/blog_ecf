@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
         }
         $_SESSION['username'] = $user['pseudo'];
-        // header('Location: ../index.php'); // Redirection vers la page d'accueil
-        // exit;
+        header('Location: ../index.php'); // Redirection vers la page d'accueil
+        exit;
     } else {
         // Erreur de connexion
         echo "Adresse e-mail ou mot de passe incorrect.";
