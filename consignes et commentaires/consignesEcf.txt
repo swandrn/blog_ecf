@@ -1,0 +1,27 @@
+Sujet : LeBlog
+
+Echéance : à déposer vendredi 24 mai 2024 à 23h59 au plus tard.
+
+Projet: 
+La cliente souhaite créer un blog pour permettre aux utilisateurs de poster
+des articles et / ou de commenter Les articles.
+A chaque article, doit être attribuée une catégorie.
+Une page d’accueil permet d’accéder aux derniers articles postés.
+Les utilisateurs pourront poster, commenter, modifier ou supprimer un article. 
+
+ Options:
+ 
+- Ajouter à la Bdd une table utilisateurs :
+- identifiant
+- nom
+- prénom
+- pseudo
+- mail
+- mdp
+- Créer un formulaire d’inscription et d’authentification.
+- Ne donner accès qu’aux utilisateurs connectés a la fonctionnalité d’ajouter un
+article et ajouter d’un commentaire.
+- Ne permettre qu’à l’auteur d’une publication de modifier sa publication.
+IMPORTANT
+Votre dossier doit être nommé de la façon suivante: GroupeN°_Ecf4
+Zipper votre dossier et ne pas oublier d’inclure la bdd dans un fichier.sql 
