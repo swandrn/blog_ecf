@@ -1,18 +1,6 @@
 <?php
 require_once './DbHandler.php';
 
-$hostname = 'localhost'; 
-$dbname = 'ecf4_blog_groupe1'; // Nom de la base de données
-$username = 'root'; 
-$password = ''; 
-
-try {
-    $bdd = new PDO("mysql:host=$hostname;dbname=$dbname;charset=utf8", $username, $password);
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
-}
-
 if (isset($_POST['ok'])) {
     $db = new DbHandler();
 
