@@ -40,6 +40,11 @@
     border: none;
 }
 
+.form-group select {
+    text-align: center;
+}
+
+
 #save {
     width: 200px;
     background-color: rgb(0, 193, 0);

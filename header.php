@@ -27,6 +27,15 @@
             <li><a class="dropdown-item" href="#">Voyage</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+        Compte
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+        <li><a class="dropdown-item" href="login.php">Se connecter</a></li>
+        <li><a class="dropdown-item" href="register.php">S'inscrire</a></li>
+    </ul>
+</li>
       </ul>
     </div>
   </div>
