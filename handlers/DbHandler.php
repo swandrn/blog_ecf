@@ -139,21 +139,25 @@ class DbHandler
             echo $e->getMessage();
         }
     }
-    
-    function getUserByEmail($email)
-{
-    try {
-        $conn = $this->openDbConnection();
-        $stmt = $conn->prepare("SELECT id_utilisateur, pseudo, password FROM utilisateurs WHERE email = :email");
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->execute();
-        $res = $stmt->fetch(PDO::FETCH_ASSOC);
-        $conn = null;
-        return $res;
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        return false;
+
+    /**
+     * Select the user with a given email
+     * @param string $email
+     * @return array|false returns the user id, username, and password on success and false on failure
+     */
+    function getUserByEmail($email){
+        try {
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("SELECT id_utilisateur, pseudo, password FROM utilisateurs WHERE email = :email");
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+            $res = $stmt->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $res;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
-}
 }
 ?>
