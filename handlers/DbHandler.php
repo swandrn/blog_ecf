@@ -131,5 +131,32 @@ class DbHandler
             echo $e->getMessage();
         }
     }
+
+    //Users
+    /**
+     * Insert a new user into the DB
+     * @param string $lname nom
+     * @param string $fname prenom
+     * @param string $username pseudo
+     * @param string $password 
+     * @param string $email
+     * @return bool true on success, false on failure 
+     */
+    function insertUser($lname, $fname, $username, $password, $email){
+        try {
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("INSERT INTO utilisateurs (nom, prenom, pseudo, password, email) VALUES (:nom, :prenom, :pseudo, :password, :email)");
+            $stmt->bindParam(':nom', $lname, PDO::PARAM_STR);
+            $stmt->bindParam(':prenom', $fname, PDO::PARAM_STR);
+            $stmt->bindParam(':pseudo', $username, PDO::PARAM_STR);
+            $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $res = $stmt->execute();
+            $conn = null;
+            return $res;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
 ?>
