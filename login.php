@@ -1,3 +1,29 @@
+<?php
+require_once './DbHandler.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $db = new DbHandler();
+    
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    // Récupérer l'utilisateur par email
+    $user = $db->getUserByEmail($email);
+
+    if ($user && password_verify($password, $user['password'])) {
+        // Connexion réussie
+        echo "Connexion réussie !";
+        header('Location: ../index.php'); // Redirection vers la page d'accueil
+        exit;
+    } else {
+        // Erreur de connexion
+        echo "Adresse e-mail ou mot de passe incorrect.";
+        header('Location: ../login.php'); // Redirection vers la page de connexion
+        exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,8 +48,8 @@
         <h1 class="text-center mb-4">Connexion</h1>
         <form action="login.php" method="post">
             <div class="form-group">
-                <label for="username">Nom d'utilisateur :</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                <label for="email">Adresse e-mail :</label>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe :</label>
@@ -31,6 +57,7 @@
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-success" id="login">Se connecter</button>
+            </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
