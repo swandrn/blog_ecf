@@ -7,27 +7,19 @@ if (session_status() === PHP_SESSION_NONE) {
 $db = new DbHandler();
 
 if (!empty($_POST)){
-    $author = $_SESSION['username'];
-    $articleId = (int)$_POST['articleId'];
-    $userId = $db->selectUserId($author);
-    $content = $_POST['comment'];
-
-    $db->insertComment($author, $articleId, $userId, $content);
-
-    header('Location: ../details_article.php?id=' . $articleId);
-    exit;
-
-}elseif (isset($_POST['action']) && $_POST['action'] === 'delete') {
-
-    // Gestion de la suppression de commentaire
-    $commentId = (int)$_POST['commentId'];
-    $articleId = (int)$_POST['articleId'];
-
-    $comment = $db->selectUserId($commentId);
-
-        if ($comment && $comment['author'] === $_SESSION['username']) {
-            $db->deleteComment($commentId);
-        }
+    //commentId n'est POSTé que si on supprime un commentaire
+    if(isset($_POST['commentId'])){
+        $commentId = (int)$_POST['commentId'];
+        $articleId = (int)$_POST['articleId'];
+        $db->deleteComment($commentId);
+    } else{
+        $author = $_SESSION['username'];
+        $articleId = (int)$_POST['articleId'];
+        $userId = $db->selectUserId($author);
+        $content = $_POST['comment'];
+    
+        $db->insertComment($author, $articleId, $userId, $content);
+    }
     header('Location: ../details_article.php?id=' . $articleId);
     exit;
 }
