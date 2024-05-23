@@ -22,7 +22,7 @@
             </ul>
         </nav>
     </header> -->
-    <?php require 'header.php' ?> 
+    <?php require 'header.php' ?>
     <div class="container mt-5">
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-between">
@@ -49,9 +49,19 @@
             <div class="card-header">
                 Derniers commentaires :
             </div>
-            <div class="card-body">
-                <!-- Contenu des derniers commentaires -->
-            </div>
+            <?php foreach ($comments as $comment) : ?>
+                <div class="card-body">
+                    <p class="author"><?= $comment['auteur'] ?></p>
+                    <p class="content"><?= $comment['contenu'] ?></p>
+                    <p class="creation-date"><?= $comment['date_creation'] ?></p>
+                    <?php if ($comment['auteur'] == $_SESSION['username']) : ?>
+                        <form action="./handlers/add_comment_handler.php" method="POST">
+                            <input type="hidden" name="commentId" value="<?= $comment['id_commentaire'] ?>">
+                            <button type="submit" class="btn btn-primary" id="save">Supprimer</button>
+                        </form>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
         </div>
 
         <!-- Bloc Laisser un commentaire -->
@@ -74,7 +84,7 @@
             </div>
         </div>
     </div>
-<?php require 'footer.php' ?>
+    <?php require 'footer.php' ?>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
