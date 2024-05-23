@@ -20,8 +20,8 @@ class DbHandler
         try {
             $conn = $this->openDbConnection();
             $stmt = $conn->prepare("INSERT INTO articles (utilisateur_id, categorie_id, titre, auteur, contenu) VALUES (:userId, :categoryId, :title, :author, :content)");
-            $stmt->bindParam(':userId', $userId, PDO::PARAM_STR);
-            $stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_STR);
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+            $stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
             $stmt->bindParam(':title', $title, PDO::PARAM_STR);
             $stmt->bindParam(':author', $author, PDO::PARAM_STR);
             $stmt->bindParam(':content', $content, PDO::PARAM_STR);
@@ -54,6 +54,21 @@ class DbHandler
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             $res = $stmt->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $res;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    function selectArticlesOfUser($userId)
+    {
+        try {
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("SELECT id_article, titre, contenu, auteur, date_creation, categorie_id FROM articles WHERE auteur=:userId");
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+            $stmt->execute();
+            $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $conn = null;
             return $res;
         } catch (PDOException $e) {
