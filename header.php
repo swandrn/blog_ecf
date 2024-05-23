@@ -35,11 +35,11 @@ if (session_status() === PHP_SESSION_NONE) {
         </li>
         <?php if(empty($_SESSION['username'])): ?>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="login.php">Connéxion</a>
+          <a class="nav-link active" aria-current="page" href="login.php">Connexion</a>
         </li>
         <?php else: ?>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./handlers/logout_handler.php">Déconnéxion</a>
+          <a class="nav-link active" aria-current="page" href="./handlers/logout_handler.php">Déconnexion</a>
         </li>
         <?php endif; ?>
       </ul>
