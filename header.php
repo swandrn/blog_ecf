@@ -36,6 +36,9 @@ if (session_status() === PHP_SESSION_NONE) {
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="login.php">Connexion</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="register.php">S'inscrire</a>
+        </li>
         <?php else: ?>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="edit_article.php">Editer un article</a>
