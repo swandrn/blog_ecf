@@ -15,18 +15,10 @@
 </head>
 
 <body>
-    <!-- <header>
-        <nav>
-            <ul>
-                <li><a href="index.php">Liste des articles</a></li>
-                <li><a href="edit_article.php">Editer un article</a></li>
-                <li><a href="create_article.php">Créer un article</a></li>
-            </ul>
-        </nav>
-    </header> -->
+
     <?php require 'header.php' ?>
     <div class="container mt-5">
-        <div class="card mb-4">
+        <!-- <div class="card mb-4">
             <div class="card-header d-flex justify-content-between">
                 Actions :
                 <div>
@@ -34,7 +26,7 @@
                     <button class="btn btn-danger" id="supprPubli">Supprimer la publication et les commentaires</button>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Bloc Article -->
         <div class="card mb-4">
