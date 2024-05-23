@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+<?php require_once './handlers/article_data_handler.php' ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +15,11 @@
 
 <body>
     <?php require 'header.php'; ?>
-
     <div class="page-container">
         <div class="form-container">
             <h1 class="text-center mb-4">Modifier un article</h1>
             <form action="./handlers/update_handler.php" method="POST">
-                <input type="hidden" name="articleId" value="<?= $articleId ?>">
+                <input type="hidden" name="articleId" value="<?= $id ?>">
                 <div class="form-group">
                     <label for="title">Titre :</label>
                     <input type="text" class="form-control" id="title" name="title" value="<?= htmlspecialchars($article['titre']) ?>" required>

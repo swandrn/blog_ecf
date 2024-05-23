@@ -190,15 +190,13 @@ class DbHandler
     }
 
     //FONCTION UPDATE A VERIFIER
-    function updateArticle($articleId, $userId, $categoryId, $title, $content, $author)
+    function updateArticle($articleId, $categoryId, $title, $content)
 {
     try {
         $conn = $this->openDbConnection();
-        $stmt = $conn->prepare("UPDATE articles SET utilisateur_id = :userId, categorie_id = :categoryId, titre = :title, auteur = :author, contenu = :content WHERE id_article = :articleId");
-        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $stmt = $conn->prepare("UPDATE articles SET categorie_id = :categoryId, titre = :title, contenu = :content WHERE id_article = :articleId");
         $stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-        $stmt->bindParam(':author', $author, PDO::PARAM_STR);
         $stmt->bindParam(':content', $content, PDO::PARAM_STR);
         $stmt->bindParam(':articleId', $articleId, PDO::PARAM_INT);
         $stmt->execute();
