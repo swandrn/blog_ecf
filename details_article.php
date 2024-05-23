@@ -54,7 +54,7 @@
                     <p class="author"><?= $comment['auteur'] ?></p>
                     <p class="content"><?= $comment['contenu'] ?></p>
                     <p class="creation-date"><?= $comment['date_creation'] ?></p>
-                    <?php if ($comment['auteur'] == $_SESSION['username']) : ?>
+                    <?php if ($comment['auteur'] == $_SESSION['username'] || $article['auteur'] == $_SESSION['username'] ) : ?>
                         <form action="./handlers/add_comment_handler.php" method="POST">
                             <input type="hidden" name="commentId" value="<?= $comment['id_commentaire'] ?>">
                             <button type="submit" class="btn btn-primary" id="save">Supprimer</button>
