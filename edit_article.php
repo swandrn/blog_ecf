@@ -17,6 +17,7 @@
     <?php require 'header.php'; ?>
     <div class="page-container">
         <div class="form-container">
+        <a href="delete_article_handler.php?id=<?= $articleId ?>" class="btn btn-danger" id="delete">X</a>
             <h1 class="text-center mb-4">Modifier un article</h1>
             <form action="./handlers/update_handler.php" method="POST">
                 <input type="hidden" name="articleId" value="<?= $id ?>">
@@ -45,6 +46,7 @@
                             <div>
                                 <button type="submit" class="btn btn-success" id="save">Enregistrer</button>
                                 <button type="button" class="btn btn-danger" id="cancel" onclick="window.location.href='index.php';">Annuler</button>
+
                             </div>
                         </div>
                     </div>
