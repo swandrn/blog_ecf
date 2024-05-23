@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 21 mai 2024 à 10:31
+-- Généré le : jeu. 23 mai 2024 à 10:39
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.3.4
 
@@ -32,14 +32,14 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `id_article` int NOT NULL AUTO_INCREMENT,
   `utilisateur_id` int NOT NULL,
   `categorie_id` int NOT NULL,
-  `titre` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `auteur` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `titre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `auteur` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `contenu` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date_creation` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_article`),
   KEY `utilisateurs_id` (`utilisateur_id`),
   KEY `categorie_id` (`categorie_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -50,9 +50,20 @@ CREATE TABLE IF NOT EXISTS `articles` (
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id_categorie` int NOT NULL AUTO_INCREMENT,
-  `nom_categorie` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nom_categorie` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_categorie`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id_categorie`, `nom_categorie`) VALUES
+(1, 'Technologie'),
+(2, 'Santé'),
+(3, 'Science'),
+(4, 'Education'),
+(5, 'Voyage');
 
 -- --------------------------------------------------------
 
@@ -63,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 DROP TABLE IF EXISTS `commentaires`;
 CREATE TABLE IF NOT EXISTS `commentaires` (
   `id_commentaire` int NOT NULL AUTO_INCREMENT,
-  `auteur` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `auteur` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `article_id` int NOT NULL,
   `utilisateur_id` int NOT NULL,
   `contenu` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -71,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   PRIMARY KEY (`id_commentaire`),
   KEY `article_id` (`article_id`),
   KEY `utilisateurs_id` (`utilisateur_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -82,15 +93,15 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id_utilisateur` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `prenom` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `pseudo` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `nom` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `pseudo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_utilisateur`),
   UNIQUE KEY `pseudo` (`pseudo`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Contraintes pour les tables déchargées
