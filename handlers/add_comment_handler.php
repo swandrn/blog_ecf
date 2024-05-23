@@ -21,9 +21,13 @@ if (!empty($_POST)){
 
     // Gestion de la suppression de commentaire
     $commentId = (int)$_POST['commentId'];
+    $articleId = (int)$_POST['articleId'];
 
-    $db->deleteComment($commentId);
+    $comment = $db->selectUserId($commentId);
 
+        if ($comment && $comment['author'] === $_SESSION['username']) {
+            $db->deleteComment($commentId);
+        }
     header('Location: ../details_article.php?id=' . $articleId);
     exit;
 }
