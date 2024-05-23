@@ -42,7 +42,7 @@ if (session_status() === PHP_SESSION_NONE) {
         
         <?php else: ?>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="edit_article.php">Mes articles</a>
+          <a class="nav-link active" aria-current="page" href="user_articles.php?user=<?= htmlspecialchars($_SESSION['username']) ?>">Mes articles</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="./handlers/logout_handler.php">Déconnexion</a>
