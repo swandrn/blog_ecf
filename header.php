@@ -13,9 +13,9 @@ if (session_status() === PHP_SESSION_NONE) {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Derniers articles</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="create_article.php">Créer son article</a>
         </li>
@@ -33,15 +33,16 @@ if (session_status() === PHP_SESSION_NONE) {
         </li>
         <!-- Si pas connecté => connexion si connecté => Déconnexion + accès à la page Mes articles -->
         <?php if(empty($_SESSION['username'])): ?>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="register.php">S'inscrire</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="login.php">Connexion</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="register.php">S'inscrire</a>
-        </li>
+        
         <?php else: ?>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="edit_article.php">Editer un article</a>
+          <a class="nav-link active" aria-current="page" href="edit_article.php">Mes articles</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="./handlers/logout_handler.php">Déconnexion</a>
