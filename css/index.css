@@ -12,9 +12,9 @@ body {
 main {
     flex: 1;
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .article {
@@ -25,33 +25,39 @@ main {
 }
 
 .card {
-    width: 100%;
+    min-width: 350px;
+    height: 250px; /* Hauteur minimale de 250px */
     border: 1px solid black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.811);
 }
 
 .card-body {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .card-title {
     font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    width: 100%; /* Assurez-vous que le titre prend toute la largeur de la carte */
 }
 
 .card-text {
     font-size: 1rem;
-    color: #666;
+    color: #000000;
     line-height: 1.5;
 }
 
 .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    margin-top: auto; /* Pousse le bouton vers le bas */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #8800ff;
 }
