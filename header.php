@@ -16,7 +16,7 @@ if (session_status() === PHP_SESSION_NONE) {
           <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Derniers articles</a>
         </li> -->
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Catégories
             </a>
@@ -27,7 +27,7 @@ if (session_status() === PHP_SESSION_NONE) {
               <li><a class="dropdown-item" href="#">Education</a></li>
               <li><a class="dropdown-item" href="#">Voyage</a></li>
             </ul>
-          </li>
+          </li> -->
           <!-- Si pas connecté => connexion si connecté => Déconnexion + accès à la page Mes articles -->
           <?php if (empty($_SESSION['username'])) : ?>
             <li class="nav-item">

@@ -77,7 +77,7 @@
                                                                     } ?>">
                     <div class="d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary" id="save">Ajouter</button>
-                        <button type="button" class="btn btn-secondary" id="cancel">Annuler</button>
+                        <button type="button" class="btn btn-danger" id="cancel" onclick="window.location.href='index.php';">Annuler</button>
                     </div>
                 </form>
             </div>
