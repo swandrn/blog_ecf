@@ -118,8 +118,9 @@ class DbHandler
         }
     }
 
-    function selectCommentsOfArticle($articleId){
-        try{
+    function selectCommentsOfArticle($articleId)
+    {
+        try {
             $conn = $this->openDbConnection();
             $stmt = $conn->prepare("SELECT id_commentaire, auteur, contenu, date_creation FROM commentaires WHERE article_id=:articleId");
             $stmt->bindParam(':articleId', $articleId, PDO::PARAM_INT);
@@ -127,7 +128,7 @@ class DbHandler
             $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $conn = null;
             return $res;
-        } catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
@@ -155,8 +156,9 @@ class DbHandler
      * @param string $username
      * @return array array of key value where key is column name
      */
-    function selectUserId($username){
-        try{
+    function selectUserId($username)
+    {
+        try {
             $conn = $this->openDbConnection();
             $stmt = $conn->prepare("SELECT id_utilisateur FROM utilisateurs WHERE pseudo=:username");
             $stmt->bindParam(':username', $username, PDO::PARAM_STR);
@@ -164,7 +166,7 @@ class DbHandler
             $res = $stmt->fetch(PDO::FETCH_ASSOC);
             $conn = null;
             return $res['id_utilisateur'];
-        } catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
@@ -174,7 +176,8 @@ class DbHandler
      * @param string $email
      * @return array|false returns the user id, username, and password on success and false on failure
      */
-    function getUserByEmail($email){
+    function getUserByEmail($email)
+    {
         try {
             $conn = $this->openDbConnection();
             $stmt = $conn->prepare("SELECT id_utilisateur, pseudo, password FROM utilisateurs WHERE email = :email");
@@ -191,19 +194,33 @@ class DbHandler
 
     //FONCTION UPDATE A VERIFIER
     function updateArticle($articleId, $categoryId, $title, $content)
-{
-    try {
-        $conn = $this->openDbConnection();
-        $stmt = $conn->prepare("UPDATE articles SET categorie_id = :categoryId, titre = :title, contenu = :content WHERE id_article = :articleId");
-        $stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
-        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-        $stmt->bindParam(':content', $content, PDO::PARAM_STR);
-        $stmt->bindParam(':articleId', $articleId, PDO::PARAM_INT);
-        $stmt->execute();
-        $conn = null;
-    } catch (PDOException $e) {
-        echo $e->getMessage();
+    {
+        try {
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("UPDATE articles SET categorie_id = :categoryId, titre = :title, contenu = :content WHERE id_article = :articleId");
+            $stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
+            $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+            $stmt->bindParam(':content', $content, PDO::PARAM_STR);
+            $stmt->bindParam(':articleId', $articleId, PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    function getCategoryName($id){
+        try {
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("SELECT nom_categorie FROM categories WHERE id_categorie = :id");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $res = $stmt->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $res['nom_categorie'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 }
-}
-?>
