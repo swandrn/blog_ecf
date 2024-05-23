@@ -39,6 +39,7 @@
                         <p class="card-text"><?= nl2br($content); ?></p>
                         <!-- Au clic sur lire la suite, redirige vers l'article -->
                         <a href="edit_article.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-primary">Modifier</a>
+                        <a href="./handlers/delete_article_handler.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-danger" id="delete">X</a>
                     </div>
                 </div>
             </div>
