@@ -12,7 +12,12 @@ if (!empty($_POST)) {
     $categoryId = $_POST['categoryId'];
     $title = $_POST['title'];
     $content = $_POST['content'];
-    $db->updateArticle($articleId, $categoryId, $title, $content);
+
+    $article = $db->selectArticle($articleId);
+    //Empêche n'importe qui de modifier un article
+    if ($article['auteur'] == $_SESSION['username']) {
+        $db->updateArticle($articleId, $categoryId, $title, $content);
+    }
 
     header('Location: ../index.php');
     exit;
