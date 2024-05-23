@@ -16,5 +16,15 @@ if (!empty($_POST)){
 
     header('Location: ../details_article.php?id=' . $articleId);
     exit;
+
+}elseif (isset($_POST['action']) && $_POST['action'] === 'delete') {
+
+    // Gestion de la suppression de commentaire
+    $commentId = (int)$_POST['commentId'];
+
+    $db->deleteComment($commentId);
+
+    header('Location: ../details_article.php?id=' . $articleId);
+    exit;
 }
 ?>
