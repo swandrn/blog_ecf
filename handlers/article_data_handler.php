@@ -8,6 +8,7 @@ if (!empty($_GET)){
     $id = $_GET['id'] ?? null;
     if($id !== null){
         $article = $db->selectArticle($id);
+        $comments = $db->selectCommentsOfArticle($id);
     }
 } else{
     //On est sur la page d'accueil
