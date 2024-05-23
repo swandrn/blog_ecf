@@ -1,10 +1,10 @@
-
 .card {
     min-width: 350px;
     height: 250px; 
     border: 1px solid black;
     background-color: #33333392;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.888);
+    position: relative; /* pour le positionnement des childs */
 }
 
 .card-body {
@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .card-title {
@@ -29,11 +29,34 @@
     line-height: 1.5;
 }
 
-.btn-primary,.btn-danger {
-    margin-top: auto; 
-    text-align: center; 
+.cardCategorie {
+    position: absolute;
+    top: -30px;
+    left: 20px; /* Adjust the position of the "bubble" */
+}
+
+.titreCategorie {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    white-space: nowrap; /* maintien dans une seule ligne*/
+}
+
+.button-container {
+    margin-top: auto; /*la card est en "column" margin top auto amene les boutons en bas*/
+    align-self: flex-end; /* Aligne les boutons à droite de la carte */
+}
+
+.btn-primary, .btn-danger {
+    margin-left: 5px; 
 }
 
 .btn-primary:hover {
-    background-color: #8800ff;
+    background-color: #33333392;
+}
+
+.card-container {
+    margin-top: 20px;  /* Ajustez cette valeur pour augmenter l'espace au-dessus de chaque carte */
 }
