@@ -14,7 +14,7 @@ if (isset($_POST['ok'])) {
 
     if ($userInsertionSucceeded) {
         echo "Inscription réussie !";
-        header('Location: ../index.php'); //Renvoi à la page d'accueil
+        header('Location: ../login.php'); //Renvoi à la page d'accueil
         exit;
     } else {
         echo "Erreur lors de l'inscription.";

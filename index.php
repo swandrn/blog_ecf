@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style_card_article.css">
 
     <title>Page d'accueil</title>
 </head>
