@@ -65,7 +65,7 @@ class DbHandler
     {
         try {
             $conn = $this->openDbConnection();
-            $stmt = $conn->prepare("SELECT id_article, titre, contenu, auteur, date_creation, categorie_id FROM articles WHERE auteur=:userId");
+            $stmt = $conn->prepare("SELECT id_article, titre, contenu, auteur, date_creation, categorie_id FROM articles WHERE utilisateur_id=:userId");
             $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
             $stmt->execute();
             $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -163,7 +163,7 @@ class DbHandler
             $stmt->execute();
             $res = $stmt->fetch(PDO::FETCH_ASSOC);
             $conn = null;
-            return $res;
+            return $res['id_utilisateur'];
         } catch(PDOException $e){
             echo $e->getMessage();
         }
