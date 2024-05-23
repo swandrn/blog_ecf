@@ -23,9 +23,9 @@
         </nav>
     </header> -->
     <?php require 'header.php' ?>
+    <h1 class="text-center mb-4">Connexion</h1>
     <div class="page-container">
         <div class="form-container">
-            <h1 class="text-center mb-4">Connexion</h1>
             <form action="handlers/traitement_login.php" method="post">
                 <div class="form-group">
                     <label for="email">Adresse e-mail :</label>

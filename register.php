@@ -16,10 +16,10 @@
 <body>
 
     <?php require 'header.php' ?>
+    <h1 class="text-center mb-4">Inscription</h1>
 
     <div class=page-container>
         <div class="form-container">
-            <h1 class="text-center mb-4">Inscription</h1>
             <form action="handlers/traitement_inscription.php" method="post">
                 <div class="form-group">
                     <label for="nom">Nom :</label>
