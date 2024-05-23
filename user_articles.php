@@ -24,6 +24,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card" data-article-id="<?= htmlspecialchars($article['id_article']); ?>">
                         <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"><?= htmlspecialchars($db->getCategoryName($article['categorie_id'])); ?></h5>
                             <h5 class="card-title"><?= htmlspecialchars($article['titre']); ?></h5>
                             <?php
                             $maxLength = 100;
@@ -33,7 +34,7 @@
                             }
                             ?>
                             <p class="card-text"><?= nl2br($content); ?></p>
-                            <h5 class="card-title"><?= htmlspecialchars($db->getCategoryName($article['categorie_id'])); ?></h5>
+                            
                             <div class="d-flex justify-content-between">
                                 <a href="edit_article.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-primary">Modifier</a>
                                 <a href="./handlers/delete_article_handler.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-danger" id="delete">X</a>

@@ -24,6 +24,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card" data-article-id="<?= htmlspecialchars($article['id_article']); ?>">
                         <div class="card-body">
+                        <h5 class="card-title"><?= htmlspecialchars($db->getCategoryName($article['categorie_id'])); ?></h5>
                             <h5 class="card-title"><?= htmlspecialchars($article['titre']); ?></h5>
                             <?php
                             // Longueur max du nombre de caractères (à voir combien on voudra)
@@ -39,7 +40,7 @@
                             <p class="card-text"><?= nl2br($content); ?></p>
                             <!-- Au clic sur lire la suite, redirige vers l'article -->
                             <a href="details_article.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-primary neon-text">Lire la suite</a>
-                            <h5 class="card-title"><?= htmlspecialchars($db->getCategoryName($article['categorie_id'])); ?></h5>
+                            
                         </div>
                     </div>
                 </div>
