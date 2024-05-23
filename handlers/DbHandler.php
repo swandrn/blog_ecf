@@ -103,6 +103,20 @@ class DbHandler
         }
     }
 
+    function selectCommentsOfArticle($articleId){
+        try{
+            $conn = $this->openDbConnection();
+            $stmt = $conn->prepare("SELECT id_commentaire, auteur, contenu, date_creation FROM commentaires WHERE article_id=:articleId");
+            $stmt->bindParam(':articleId', $articleId, PDO::PARAM_INT);
+            $stmt->execute();
+            $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $res;
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
     function insertUser($lname, $fname, $username, $password, $email)
     {
         try {
