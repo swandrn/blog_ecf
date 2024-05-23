@@ -56,12 +56,14 @@
                     <p class="author"><?= $comment['auteur'] ?></p>
                     <p class="content"><?= $comment['contenu'] ?></p>
                     <p class="creation-date"><?= $comment['date_creation'] ?></p>
-                    <?php if ($comment['auteur'] == $_SESSION['username'] || $article['auteur'] == $_SESSION['username'] ) : ?>
-                        <form action="./handlers/comment_handler.php" method="POST">
-                            <input type="hidden" name="commentId" value="<?= $comment['id_commentaire'] ?>">
-                            <input type="hidden" name="articleId" value="<?php if(!empty($_GET)){echo htmlspecialchars($_GET['id']);} ?>">
-                            <button type="submit" class="btn btn-primary" id="delete">Supprimer</button>
-                        </form>
+                    <?php if (isset($_SESSION['username'])) : ?>
+                        <?php if ($comment['auteur'] == $_SESSION['username'] || $article['auteur'] == $_SESSION['username']) : ?>
+                            <form action="./handlers/comment_handler.php" method="POST">
+                                <input type="hidden" name="commentId" value="<?= $comment['id_commentaire'] ?>">
+                                <input type="hidden" name="articleId" value="<?php if (!empty($_GET)) {echo htmlspecialchars($_GET['id']);} ?>">
+                                <button type="submit" class="btn btn-primary" id="delete">Supprimer</button>
+                            </form>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
@@ -78,7 +80,9 @@
                         <label for="comment">Commentaire :</label>
                         <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
                     </div>
-                    <input type="hidden" name="articleId" value="<?php if(!empty($_GET)){echo htmlspecialchars($_GET['id']);} ?>">
+                    <input type="hidden" name="articleId" value="<?php if (!empty($_GET)) {
+                                                                        echo htmlspecialchars($_GET['id']);
+                                                                    } ?>">
                     <div class="d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary" id="save">Ajouter</button>
                         <button type="button" class="btn btn-secondary" id="cancel">Annuler</button>
