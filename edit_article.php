@@ -10,14 +10,7 @@
 </head>
 
 <body>
-    <!-- <header>
-        <nav>
-            <ul>
-                <li><a href="index.php">Liste des articles</a></li>
-                <li><a href="create_article.php">Créer un article</a></li>
-            </ul>
-        </nav>
-    </header> -->
+    
     <?php require 'header.php' ?>
     <main>
         <div class="article">
