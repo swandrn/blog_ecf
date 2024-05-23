@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<?php require_once './handlers/article_data_handler.php'; ?>
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détails de l'article</title>
+    <title>Modification d'un article</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style_formulaire.css" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
@@ -15,54 +13,46 @@
 </head>
 
 <body>
+    <?php require 'header.php'; ?>
 
-    <?php require 'header.php' ?>
-    <div class="container mt-5">
-
-        <!-- Bloc Article -->
-        <div class="card mb-4">
-            <div class="card-header">
-                Article : <?= $article['titre']; ?>
-            </div>
-            <div class="card-body">
-                <p><?= $article['contenu']; ?></p>
-            </div>
-        </div>
-
-        <!-- Derniers commentaires -->
-        <div class="card mb-4">
-            <div class="card-header">
-                Derniers commentaires :
-            </div>
-            <?php foreach ($comments as $comment) : ?>
-                <div class="card-body">
-                    <p class="author"><?= $comment['auteur'] ?></p>
-                    <p class="content"><?= $comment['contenu'] ?></p>
-                    <p class="creation-date"><?= $comment['date_creation'] ?></p>
-                    <?php if (isset($_SESSION['username'])) : ?>
-                        <?php if ($comment['auteur'] == $_SESSION['username'] || $article['auteur'] == $_SESSION['username']) : ?>
-                            <form action="./handlers/comment_handler.php" method="POST">
-                                <input type="hidden" name="commentId" value="<?= $comment['id_commentaire'] ?>">
-                                <input type="hidden" name="articleId" value="<?php if (!empty($_GET)) {echo htmlspecialchars($_GET['id']);} ?>">
-                                <button type="submit" class="btn btn-primary" id="delete">Supprimer</button>
-                            </form>
-                        <?php endif; ?>
-                    <?php endif; ?>
+    <div class="page-container">
+        <div class="form-container">
+            <h1 class="text-center mb-4">Modifier un article</h1>
+            <form action="./handlers/update_handler.php" method="POST">
+                <input type="hidden" name="articleId" value="<?= $articleId ?>">
+                <div class="form-group">
+                    <label for="title">Titre :</label>
+                    <input type="text" class="form-control" id="title" name="title" value="<?= htmlspecialchars($article['titre']) ?>" required>
                 </div>
-            <?php endforeach; ?>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header d-flex justify-content-between">
-                Actions :
-                <div>
-                    <button class="btn btn-primary" id="save">Modifier</button>
-                    <button class="btn btn-danger" id="supprPubli">Supprimer la publication et les commentaires</button>
+                <div class="form-group">
+                    <label for="content">Contenu :</label>
+                    <textarea class="form-control" id="content" name="content" rows="10" required><?= htmlspecialchars($article['contenu']) ?></textarea>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="categories">Catégorie :</label>
+                    <select class="form-control" id="categories" name="categoryId">
+                        <option value="1" <?= $article['categorie_id'] == 1 ? 'selected' : '' ?>>Technologie</option>
+                        <option value="2" <?= $article['categorie_id'] == 2 ? 'selected' : '' ?>>Santé</option>
+                        <option value="3" <?= $article['categorie_id'] == 3 ? 'selected' : '' ?>>Science</option>
+                        <option value="4" <?= $article['categorie_id'] == 4 ? 'selected' : '' ?>>Éducation</option>
+                        <option value="5" <?= $article['categorie_id'] == 5 ? 'selected' : '' ?>>Voyage</option>
+                    </select>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Actions :</span>
+                            <div>
+                                <button type="submit" class="btn btn-success" id="save">Enregistrer</button>
+                                <button type="button" class="btn btn-danger" id="cancel" onclick="window.location.href='index.php';">Annuler</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <?php require 'footer.php' ?>
+    <?php require 'footer.php'; ?>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
