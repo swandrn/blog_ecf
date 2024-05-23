@@ -4,7 +4,7 @@
 
 .card-header {
     text-align: center;
-    border: 3px solid black;
+    border: 2px solid black;
 }
 
 .card-header h2 {
@@ -13,16 +13,22 @@
 
 .card-body {
     padding: 20px;
-    border: 3px solid black;
+    border: 2px solid black;
 }
 
 .form-container {
-    width: 1000px;
+    width: 600px;
     text-align: center;
+    border: black 1px solid;
+    border-radius: 10px;
+    background-color: #333;
+    color: white;
 }
 
 .form-control {
+    width: 400px;
     border: 3px solid black;
+    justify-content: center;
 }
 
 .btn {
@@ -39,7 +45,12 @@
     background-color: #28a745;
     border: none;
 }
-
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
 .form-group select {
     text-align: center;
 }
