@@ -52,7 +52,6 @@
             <?php endforeach; ?>
         </div>
 
-        <!-- Bloc Laisser un commentaire -->
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-between">
                 Actions :

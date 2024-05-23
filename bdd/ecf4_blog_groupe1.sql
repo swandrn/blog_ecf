@@ -111,16 +111,26 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 -- Contraintes pour la table `articles`
 --
 ALTER TABLE `articles`
-  ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id_utilisateur`),
-  ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id_categorie`);
+  ADD CONSTRAINT `fk_user_id_articles`
+  FOREIGN KEY (`utilisateur_id`)
+  REFERENCES `utilisateurs` (`id_utilisateur`)
+  ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_categorie_id_articles`
+  FOREIGN KEY (`categorie_id`)
+  REFERENCES `categories` (`id_categorie`);
 
 --
 -- Contraintes pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id_article`),
-  ADD CONSTRAINT `commentaires_ibfk_2` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id_utilisateur`);
-COMMIT;
+  ADD CONSTRAINT `fk_article_id_commentaires`
+  FOREIGN KEY (`article_id`)
+  REFERENCES `articles` (`id_article`)
+  ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_user_id_commentaires`
+  FOREIGN KEY (`utilisateur_id`)
+  REFERENCES `utilisateurs` (`id_utilisateur`)
+  ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
