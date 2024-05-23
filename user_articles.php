@@ -36,7 +36,7 @@
                         <!-- nl2br insère un retour à la ligne HTML à chaque nouvelle ligne -->
                         <p class="card-text"><?= nl2br($content); ?></p>
                         <!-- Au clic sur lire la suite, redirige vers l'article -->
-                        <a href="edit_article.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-primary">Lire la suite</a>
+                        <a href="edit_article.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-primary">Modifier</a>
                     </div>
                 </div>
             </div>
