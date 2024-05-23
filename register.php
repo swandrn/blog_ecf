@@ -18,6 +18,7 @@
             </ul>
         </nav>
     </header>
+    <div class=page-container>
     <div class="form-container">
         <h1 class="text-center mb-4">Inscription</h1>
         <form action="handlers/traitement_inscription.php" method="post">
@@ -44,6 +45,7 @@
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" value ="M'inscrire" name="ok">S'inscrire</button>
         </form>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
