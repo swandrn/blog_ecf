@@ -59,7 +59,8 @@
                     <?php if ($comment['auteur'] == $_SESSION['username'] || $article['auteur'] == $_SESSION['username'] ) : ?>
                         <form action="./handlers/add_comment_handler.php" method="POST">
                             <input type="hidden" name="commentId" value="<?= $comment['id_commentaire'] ?>">
-                            <button type="submit" class="btn btn-primary" id="save">Supprimer</button>
+                            <input type="hidden" name="articleId" value="<?php if(!empty($_GET)){echo htmlspecialchars($_GET['id']);} ?>">
+                            <button type="submit" class="btn btn-primary" id="delete">Supprimer</button>
                         </form>
                     <?php endif; ?>
                 </div>
