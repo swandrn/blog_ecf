@@ -8,7 +8,10 @@ body {
     background-image: url('../img/notebook-3820634_1280.jpg');
     background-size: cover;
 }
-
+h1 {
+    text-align: center;
+    background-color: #ddd;
+}
 main {
     flex: 1;
     padding: 20px;

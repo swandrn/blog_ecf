@@ -17,6 +17,7 @@
 
 <body>
     <?php require 'header.php'; ?>
+    <h1>Mes Articles</h1>
     <main class="container mt-5">
         <div class="row">
             <?php foreach($userArticles as $article): ?>

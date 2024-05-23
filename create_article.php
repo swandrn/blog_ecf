@@ -7,15 +7,16 @@
     <title>Création d'un article</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style_formulaire.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
 </head>
 
 <body>
     <?php require 'header.php' ?>
+    <h1 class="text-center mb-4">Créer un article</h1>
     <div class="page-container">
         <div class="form-container">
-            <h1 class="text-center mb-4">Créer un article</h1>
             <form action="./handlers/creation_form_handler.php" method="POST">
                 <div class="form-group">
                     <label for="title">Titre :</label>
