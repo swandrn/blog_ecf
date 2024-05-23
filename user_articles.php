@@ -37,7 +37,7 @@
                             
                             <div class="d-flex justify-content-between">
                                 <a href="edit_article.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-primary">Modifier</a>
-                                <a href="./handlers/delete_article_handler.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-danger" id="delete">X</a>
+                                <a href="./handlers/delete_article_handler.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-danger" id="delete">🗑</a>
                             </div>
                         </div>
                     </div>

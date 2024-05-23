@@ -6,17 +6,20 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $db = new DbHandler();
 
-if(!empty($_GET)){
+if (!empty($_GET)) {
     $articleId = $_GET['id'] ?? null;
-    if($articleId !== null){
+    if ($articleId !== null) {
         $article = $db->selectArticle($articleId);
-        //Empêche n'importe qui de supprimer un article
-        if($article['auteur'] == $_SESSION['username']){
+        // Empêche n'importe qui de supprimer un article
+        if ($article !== null && $article['auteur'] == $_SESSION['username']) {
             $db->deleteArticle($articleId);
         }
     }
 }
 
-header('Location: ../index.php');
+$user = $_SESSION['username'] ?? '';
+
+// Redirection vers la page avec le paramètre user
+header('Location: ../user_articles.php?user=' . urlencode($user));
 exit;
 ?>

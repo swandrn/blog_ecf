@@ -30,8 +30,8 @@
 }
 
 .btn-primary,.btn-danger {
-    margin-top: auto; /* Pousse le bouton vers le bas */
-    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    margin-top: auto; 
+    text-align: center; 
 }
 
 .btn-primary:hover {
