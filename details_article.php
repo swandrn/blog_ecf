@@ -57,7 +57,7 @@
                     <p class="content"><?= $comment['contenu'] ?></p>
                     <p class="creation-date"><?= $comment['date_creation'] ?></p>
                     <?php if ($comment['auteur'] == $_SESSION['username'] || $article['auteur'] == $_SESSION['username'] ) : ?>
-                        <form action="./handlers/add_comment_handler.php" method="POST">
+                        <form action="./handlers/comment_handler.php" method="POST">
                             <input type="hidden" name="commentId" value="<?= $comment['id_commentaire'] ?>">
                             <input type="hidden" name="articleId" value="<?php if(!empty($_GET)){echo htmlspecialchars($_GET['id']);} ?>">
                             <button type="submit" class="btn btn-primary" id="delete">Supprimer</button>
@@ -73,7 +73,7 @@
                 Laisser un commentaire :
             </div>
             <div class="card-body">
-                <form action="./handlers/add_comment_handler.php" method="POST">
+                <form action="./handlers/comment_handler.php" method="POST">
                     <div class="form-group">
                         <label for="comment">Commentaire :</label>
                         <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
