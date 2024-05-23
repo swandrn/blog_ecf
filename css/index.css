@@ -5,7 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../img/social-media-1989152_1280.jpg');
+    background-image: url('../img/notebook-3820634_1280.jpg');
     background-size: cover;
 }
 
@@ -28,7 +28,8 @@ main {
     min-width: 350px;
     height: 250px; /* Hauteur minimale de 250px */
     border: 1px solid black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.811);
+    background-color: #33333392;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.888);
 }
 
 .card-body {
@@ -49,7 +50,7 @@ main {
 
 .card-text {
     font-size: 1rem;
-    color: #000000;
+    color: #ffffff;
     line-height: 1.5;
 }
 
