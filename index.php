@@ -42,7 +42,7 @@
                             <p class="card-text"><?= nl2br($content); ?></p>
                             <!-- Au clic sur lire la suite, redirige vers l'article -->
                             <div class="button-container">
-                                <a href="details_article.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-primary">Lire la suite</a>
+                            <a href="details_article.php?id=<?= htmlspecialchars($article['id_article']); ?>" class="btn btn-primary">Lire la suite</a>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@
     <main class="container mt-5">
         <div class="row">
             <?php foreach ($userArticles as $article) : ?>
-                <div class="col-md-4 mb-4 card-container"> <!-- Ajout de la classe card-container -->
+                <div class="col-md-4 mb-4 card-container" >
                     <div class="card" data-article-id="<?= htmlspecialchars($article['id_article']); ?>">
                         <div class="card-body d-flex flex-column">
                             <div class="cardCategorie">
