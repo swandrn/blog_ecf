@@ -23,6 +23,7 @@ footer {
 
 .footer-container ul li {
     margin: 5px 0;
+    list-style-type: none;
 }
 
 .footer-container ul li a {

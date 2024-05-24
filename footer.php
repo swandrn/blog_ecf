@@ -1,6 +1,7 @@
 <footer>
         <p>&copy; 2024</p>
-        <ul>
+        <!-- class list-unstyled de bootstrap pour enlever les puces -->
+        <ul class ="list-unstyled">
             <li><a href="https://github.com/swandrn/blog_ecf" target="_blank"><i class="fab fa-git-alt"></i> Projet : Blog_Ecf4_Groupe1</a></li>
             <li><a href="https://github.com/swandrn" target="_blank"><i class="fab fa-github"></i> Swan / @swandrn</a></li>
             <li><a href="https://github.com/Mattmoimeme" target="_blank"><i class="fab fa-github"></i> Mathias / @Mattmoimeme</a></li>
