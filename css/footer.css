@@ -2,5 +2,34 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 1em 0;
+    padding: 1em 0;}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-container p {
+    flex: 1 0 100%;
+}
+
+.footer-container ul {
+    flex: 1 0 100%;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-container ul li {
+    margin: 5px 0;
+}
+
+.footer-container ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-container ul li a:hover {
+    color: #ddd;
 }

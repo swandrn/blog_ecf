@@ -32,7 +32,7 @@
 .cardCategorie {
     position: absolute;
     top: -30px;
-    left: 20px; /* Adjust the position of the "bubble" */
+    left: 20px;
 }
 
 .titreCategorie {

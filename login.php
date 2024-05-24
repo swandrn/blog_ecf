@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="css/index.css">
+    <script src="https://kit.fontawesome.com/51314cf778.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -42,6 +43,8 @@
         </div>
     </div>
     <?php require 'footer.php' ?>
+    
+    <script src="https://kit.fontawesome.com/51314cf778.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
