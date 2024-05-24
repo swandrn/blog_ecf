@@ -3,6 +3,7 @@
     src: url("../Fonts/PinkChicken-Regular.ttf") format("truetype");
 }
 body {
+    /* font-family:Arial, Helvetica, sans-serif; */
     font-family: 'PinkChicken';
     margin: 0;
     padding: 0;
