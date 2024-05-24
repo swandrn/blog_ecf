@@ -18,7 +18,7 @@
 
 <body>
     <?php require 'header.php'; ?>
-    <h1>Accueil</h1>
+    <h1>Le Blog POP'Culture , où tu te tiens au JUS !</h1>
     <main class="container mt-5">
         <div class="row">
             <?php foreach ($articles as $article) : ?>

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modification d'un article</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
     <link href="css/style_formulaire.css" rel="stylesheet">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">

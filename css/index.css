@@ -1,16 +1,22 @@
+@font-face {
+    font-family: "PinkChicken";
+    src: url("../Fonts/PinkChicken-Regular.ttf") format("truetype");
+}
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'PinkChicken';
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../img/notebook-3820634_1280.jpg');
-    background-size: cover;
+    background-image: url('../img/stormtroupLego.jpg');
+    background-size:contain;
+    /* background-size:cover; */
 }
 h1 {
+    color: rgb(255, 252, 87);
     text-align: center;
-    background-color: #ddd;
+    background-color: transparent;
 }
 main {
     flex: 1;
