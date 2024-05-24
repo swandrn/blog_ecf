@@ -4,18 +4,18 @@ footer {
     text-align: center;
     padding: 1em 0;}
 
-.footer-container {
+/* .footer-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-}
+} */
 
-.footer-container p {
+/* .footer-container p {
     flex: 1 0 100%;
-}
+} */
 
-.footer-container ul {
+/* .footer-container ul {
     flex: 1 0 100%;
     padding: 0;
     list-style: none;
@@ -24,13 +24,12 @@ footer {
 .footer-container ul li {
     margin: 5px 0;
     list-style-type: none;
-}
+} */
 
 .footer-container ul li a {
-    color: white !important;
-    text-decoration: none !important;
+    color: white;
 }
 
 .footer-container ul li a:hover {
-    color: #ddd !important;
+    color: #f4ef48;
 }
