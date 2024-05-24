@@ -15,7 +15,8 @@ body {
     /* background-size:cover; */
 }
 h1 {
-    color: rgb(255, 252, 87);
+    text-shadow:0 0 4px #FF0000,0 0 50px #FF0000,0px 0px 14px #FF0000, 0 0 100px #FF0000, 0 0 150px #FF0000, 0 0 150px #FF0000, 0 0 550px #CA0000, 0 0 250px #CA0000, 0 0 350px #CA0000, 0 0 250px #CA0000;color:#FFD000;
+    background-color:#2E8ECE;;
     text-align: center;
     background-color: transparent;
 }
