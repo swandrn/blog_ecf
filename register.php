@@ -9,7 +9,7 @@
     <link href="css/style_formulaire.css" rel="stylesheet">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style_index.css">
     
 </head>
 

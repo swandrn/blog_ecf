@@ -9,7 +9,7 @@
     <link href="css/style_formulaire.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style_index.css">
     <script src="https://kit.fontawesome.com/51314cf778.js" crossorigin="anonymous"></script>
 
 </head>

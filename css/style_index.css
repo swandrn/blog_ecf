@@ -16,11 +16,32 @@ body {
 }
 
 h1 {
-    text-shadow:0 0 4px #FF0000,0 0 50px #FF0000,0px 0px 14px #FF0000, 0 0 100px #FF0000, 0 0 150px #FF0000, 0 0 150px #FF0000, 0 0 550px #CA0000, 0 0 250px #CA0000, 0 0 350px #CA0000, 0 0 250px #CA0000;color:#FFD000;
-    background-color:#2E8ECE;;
     text-align: center;
-    background-color: transparent;
-}
+    font-family: 'Commissioner', sans-serif;
+    font-size: 64px;
+    color: #ffd6d6;
+    line-height: 1;
+    border-radius: 50%;
+    text-transform: uppercase;
+    animation: flashing 1.4s infinite alternate;
+  }
+      
+  
+  /*@keyframes flashing {
+      0%, 18%, 21%, 32%, 35%, 39%, 42%, 100% {
+        text-shadow:
+          0 0 16px #f46600,
+          0 0 16px #f46600,
+          0 0 32px #FF0000,
+          0 0 64px #FF0000,
+          0 0 90px #FF0000,
+          0 0 124px #FF0000;
+      }
+      20%, 34%, 41% {        
+        text-shadow: none;
+      }    
+  }*/
+
 main {
     flex: 1;
     padding: 20px;
@@ -35,3 +56,4 @@ main {
     border: 1px solid #ddd;
     border-radius: 8px;
 }
+
