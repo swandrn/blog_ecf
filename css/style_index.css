@@ -27,7 +27,7 @@ h1 {
   }
       
   
-  /*@keyframes flashing {
+  @keyframes flashing {
       0%, 18%, 21%, 32%, 35%, 39%, 42%, 100% {
         text-shadow:
           0 0 16px #f46600,
@@ -40,7 +40,7 @@ h1 {
       20%, 34%, 41% {        
         text-shadow: none;
       }    
-  }*/
+  }
 
 main {
     flex: 1;
